@@ -1,4 +1,5 @@
 <?php
+
 function isPrime($number)
 {
     if ($number < 2) {
@@ -12,11 +13,11 @@ function isPrime($number)
     return true;
 }
 
-function printNUmber($n)
+function printNumber($n)
 {
-    for ($i = 0; $i <= $n; $i++) {
+    for ($i = 0; $i < $n; $i++) {
         if (isPrime($i)) {
-            echo $i.' ';
+            echo $i . ' ';
         }
     }
 }
@@ -26,20 +27,24 @@ function printNUmber($n)
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>Print 20 prime Number</title>
+    <title>Print Prime Number</title>
 
 </head>
 <body>
 <form method="post">
-    <label>Enter your Prime number amout you want.</label>
-    <input type="number" name="primeNumber">
+
+    <label>Enter amount number you want</label>
+    <input type="text" name="number">
     <button type="submit">Display</button>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] = 'POST') {
+        $number = $_POST['number'];
+
+        printNumber($number);
+    }
+    ?>
 </form>
-<?php
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    $number = $_POST['primeNumber'];
-    printNUmber($number);
-}
-?>
+
 </body>
 </html>
